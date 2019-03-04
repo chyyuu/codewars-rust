@@ -12,9 +12,11 @@ fn apparently(string: &str) -> String {
                         v.push("apparently");
                         (v, true)
                     }
-                    _ => (v, false)
-                }
+                    _ => if flag {
+                        (v, !flag)
+                    } else { (v, flag) }
             }
+        },
         ).0
         .join(" ")
 }
